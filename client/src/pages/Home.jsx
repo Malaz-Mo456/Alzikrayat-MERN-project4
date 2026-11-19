@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import apiRequest from '../services/api';
 import './home.css';
 
 const samplePhotos = [
@@ -29,13 +30,8 @@ function Home() {
     useEffect(() => {
         const fetchPhotos = async () => {
             try {
-                const response = await fetch('/api/photos');
-
-                if (!response.ok) {
-                    throw new Error('Failed to load photos');
-                }
-
-                const data = await response.json();
+                // Get photos using the shared Axios API service
+                const data = await apiRequest('/photos');
 
                 const photoList = Array.isArray(data)
                     ? data
@@ -43,9 +39,11 @@ function Home() {
 
                 setPhotos(photoList);
                 setUsingSamplePhotos(photoList.length === 0);
+
             } catch (error) {
                 console.error('Could not load photos:', error);
                 setLoadError(true);
+
             } finally {
                 setIsLoading(false);
             }
@@ -333,4 +331,9 @@ function Home() {
 }
 
 export default Home;
+
+
+
+
+
 
