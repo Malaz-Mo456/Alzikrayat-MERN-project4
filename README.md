@@ -69,7 +69,7 @@ Before running the project, make sure you have installed:
 
 Step 1: Clone the Repository
 
-git clone https://github.com/Malaz-Mo456/Alzikrayat-MERN
+git clone https://github.com/Malaz-Mo456/Alzikrayat-MERN-project4
 cd Alzikrayat-MERN
 
 Step 2: Install Backend Dependencies
